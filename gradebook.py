@@ -1,11 +1,13 @@
 # Project Title : Gradebook Analyzer CLI
 # Name : Anupam Chaudhary
 # Department : B.Tech. C.S.E ( AI/ML ) section-A
-# Roll no. 2501730151
+# Roll no. 2501730181
 
 
 import csv
 
+global sub_list
+sub_list = ["Mathematics" , "Chemistry" , "Python" , "HTML" , "CS Fundamentals"]
 # -------------------------------------------------------
 # MANUAL INPUT
 # -------------------------------------------------------
@@ -14,13 +16,13 @@ def manual_input():
     students = []
     n = int(input("Enter number of students: "))
 
-    for _ in range(n):
+    for i in range(n):
         name = input("\nEnter student name: ")
 
         marks = []
         print("Enter marks for 5 subjects:")
-        for i in range(1, 6):
-            marks.append(float(input(f"Subject {i}: ")))
+        for a in sub_list:
+            marks.append(float(input(f"Enter marks in {a}: ")))
 
         total = sum(marks)
         avg = total / 5
@@ -156,7 +158,7 @@ def save_results_manual(students, highest, lowest, class_avg, median):
 
     with open(filename, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Name", "Sub1", "Sub2", "Sub3", "Sub4", "Sub5",
+        writer.writerow(["Name", sub_list[0], sub_list[1], sub_list[2], sub_list[3], sub_list[4],
                          "Total", "Average", "Grade"])
 
         for s in students:
@@ -176,7 +178,7 @@ def update_existing_csv(old_filename, students, highest, lowest, class_avg, medi
 
     with open(new_filename, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Name", "Sub1", "Sub2", "Sub3", "Sub4", "Sub5",
+        writer.writerow(["Name", sub_list[0], sub_list[1], sub_list[2], sub_list[3], sub_list[4],
                          "Total", "Average", "Grade"])
 
         for s in students:
@@ -208,11 +210,11 @@ def ask_to_save(students, csv_file_used, highest, lowest, class_avg, median):
 
 def print_report(students, highest, lowest, class_avg, median, passed, failed):
     print("\n==================== STUDENT REPORT ====================")
-    print(f"{'Name':<12}{'Sub1':<8}{'Sub2':<8}{'Sub3':<8}{'Sub4':<8}{'Sub5':<8}{'Total':<10}{'Average':<10}{'Grade':<6}")
-    print("-------------------------------------------------------------------------------")
+    print(f"{'Name':<12}{sub_list[0]:<18}{sub_list[1]:<18}{sub_list[2]:<18}{sub_list[3]:<18}{sub_list[4]:<18}{'Total':<10}{'Average':<10}{'Grade':<6}")
+    print("----------------------------------------------------------------------------------------------------------------------------------------")
 
     for s in students:
-        print(f"{s[0]:<12}{s[1]:<8}{s[2]:<8}{s[3]:<8}{s[4]:<8}{s[5]:<8}{s[6]:<10.2f}{s[7]:<10.2f}{s[8]:<6}")
+        print(f"{s[0]:<12}{s[1]:<18}{s[2]:<18}{s[3]:<18}{s[4]:<18}{s[5]:<18}{s[6]:<10.2f}{s[7]:<10.2f}{s[8]:<6}")
 
     print("\n-------------------- CLASS STATISTICS -------------------")
     print(f"Highest Scorer : {highest}")
@@ -240,4 +242,3 @@ passed, failed = pass_fail_lists(students)
 print_report(students, highest, lowest, class_avg, median, passed, failed)
 
 ask_to_save(students, csv_file_used, highest, lowest, class_avg, median)
-
