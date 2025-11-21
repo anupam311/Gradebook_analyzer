@@ -1,0 +1,11 @@
+Name,Mathematics,Chemistry,Python,HTML,CS Fundamentals,Total,Average,Grade
+Vikram,87.0,67.0,90.0,65.0,89.5,398.5,79.7,C
+Ranvir,76.0,90.0,54.0,29.0,30.0,279.0,55.8,E
+Veer,90.0,89.0,67.0,32.0,45.0,323.0,64.6,D
+Mukesh,68.0,54.0,26.0,18.0,26.0,192.0,38.4,F
+
+CLASS STATISTICS
+Highest Scorer,Vikram
+Lowest Scorer,Mukesh
+Class Average,59.625
+Class Median,60.199999999999996
