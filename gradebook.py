@@ -240,3 +240,4 @@ passed, failed = pass_fail_lists(students)
 print_report(students, highest, lowest, class_avg, median, passed, failed)
 
 ask_to_save(students, csv_file_used, highest, lowest, class_avg, median)
+
