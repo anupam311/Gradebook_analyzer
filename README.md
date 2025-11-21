@@ -35,10 +35,8 @@ Input any number of students and their marks in: - Mathematics\
 
 ### ✔ CSV Import
 
-Reads only: - Student Name\
+Reads: - Student Name\
 - Five subject marks
-
-Ignores any extra columns like totals, grades, or class statistics.
 
 ### ✔ Automatic Calculations
 
